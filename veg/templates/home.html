@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Grocery Store</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to Fresh Grocery Store</h1>
+        <p>Your one-stop shop for the freshest vegetables and groceries!</p>
+    </header>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/products/">View Products</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Fresh, Organic & Healthy</h2>
+        <p>Shop with us and enjoy farm-fresh produce delivered to your doorstep.</p>
+        <a href="/products/" class="button">Shop Now</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <h3>Organic Produce</h3>
+            <p>Grown without chemicals for a healthier lifestyle.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Fast Delivery</h3>
+            <p>We ensure fresh groceries reach you on time.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Best Prices</h3>
+            <p>Affordable, farm-fresh groceries at unbeatable prices.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Fresh Grocery Store | Eat Healthy, Stay Healthy</p>
+    </footer>
+</body>
+</html>
