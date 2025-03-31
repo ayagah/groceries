@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y2(1ub-!3)%4t$l6@#4^=1myd54@dm52!9_kuvh$2@z!-cky#('
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-!@#4$%^&*()_+1234567890-=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =[]
 
 
 # Application definition
@@ -74,14 +75,40 @@ WSGI_APPLICATION = 'groceries.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
+DATABASES={
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
+DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': os.environ.get('DB_NAME'),
+          'USER': os.environ.get('DB_USER'),
+          'PASSWORD': os.environ.get('DB_PASSWORD'),
+          'HOST': os.environ.get('DB_HOST'),
+          'PORT': os.environ.get('DB_PORT'),
+          'OPTIONS': {
+              'sslmode': 'disable',
+         },
+     }
+  }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'groceries_db_6etb',
+        'USER': 'groceries_db_6etb_user',
+        'PASSWORD': 'qPILWWr1B2RZEJskVbpcggyY18YzK6TX',
+        'HOST': 'dpg-cvl4hs8gjchc73fq735g-a.oregon-postgres.render.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
+}
+#postgresql://groceries_r1fa_user:0s4r6QmsDDBWoSYczErAlvkPnvlqjP6d@dpg-cvja7per433s73aipang-a.oregon-postgres.render.com/groceries_r1fa
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

@@ -5,6 +5,7 @@ body {
     color: #2f4f1f;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
 /* Navigation Bar */
@@ -12,6 +13,9 @@ nav {
     background-color: #4caf50;
     padding: 10px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
@@ -19,6 +23,7 @@ nav a {
     text-decoration: none;
     padding: 10px 20px;
     font-weight: bold;
+    transition: background 0.3s ease-in-out;
 }
 
 nav a:hover {
@@ -31,6 +36,7 @@ h1 {
     text-align: center;
     color: #2e7d32;
     margin-top: 20px;
+    font-size: 2.5em;
 }
 
 /* Product List */
@@ -50,11 +56,12 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .product-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Product Image */
@@ -88,11 +95,12 @@ h1 {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .button:hover {
     background-color: #388e3c;
+    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -102,4 +110,19 @@ footer {
     text-align: center;
     padding: 10px;
     margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .products-container {
+        grid-template-columns: 1fr;
+    }
 }
